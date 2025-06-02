@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mystwood Match</title>
+  <link id="favicon" rel="icon" type="image/png" href="images/back.jpg" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Particle Canvas (for background and cursor sparkles) -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Start Screen -->
+  <div id="startScreen">
+    <div class="start-content">
+      <h1 class="title">Mystwood Match</h1>
+      <p class="tagline">Match the creatures. Awaken the forest.</p>
+      <button id="startButton">Enter the Grove</button>
+    </div>
+  </div>
+
+  <!-- Game Header -->
+  <div id="header">
+    <h1>Mystwood Match</h1>
+    <br />
+    <div id="timer">Time Left: 60s</div>
+    <br />
+    <div id="startMessagePlaceholder"></div>
+    <button id="resetButton" onclick="restartGame()">Reset Game</button>
+  </div>
+
+  <!-- Game Board -->
+  <div id="gameContainer">
+    <div id="gameBoard"></div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="ambientAudio" src="sounds/forest_ambience.mp3" loop></audio>
+  <audio id="flipSound" src="sounds/card-flip.wav" preload="auto"></audio>
+
+  <!-- Win Screen -->
+  <div id="winScreen" style="display: none;">
+    <div class="end-content">
+      <h1 class="title">You Beat the Game!</h1>
+      <p class="tagline">The forest remembers your triumph...</p>
+      <p id="winStats" class="tagline"></p>
+      <button id="playAgainWin">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Lose Screen -->
+  <div id="loseScreen" style="display: none;">
+    <div class="end-content lose-style">
+      <h1 class="title">Time's Up...</h1>
+      <p class="tagline">The forest sleeps once more.</p>
+      <p id="loseStats" class="tagline"></p>
+      <button id="tryAgainButton">Try Again</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Text Generator Tool</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <style>
+    .tool-container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .prompt-box {
+      font-size: 1.2rem;
+      margin: 30px 0;
+      color: #444;
+      min-height: 60px;
+    }
+
+    .button {
+      font-size: 1rem;
+      padding: 12px 25px;
+      border: none;
+      background-color: #3a3a3a;
+      color: white;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Text Generator Tool</h1>
+</header>
+
+<div class="tool-container">
+  <h2>Creative Prompt Generator</h2>
+  <p class="intro-text">Need a spark of inspiration? Click the button to generate a random story prompt.</p>
+
+  <div class="prompt-box" id="promptBox">✨ Click the button below to begin!</div>
+
+  <button class="button" onclick="generatePrompt()">Generate Prompt</button>
+</div>
+
+<script>
+  const prompts = [
+    "A traveler wakes up with no memory in a city where everyone wears masks.",
+    "Write a scene where time runs backward for one hour.",
+    "A cat inherits a fortune—and a list of people it must outwit to claim it.",
+    "Your character gets a message from a future version of themselves—warning them not to trust someone close.",
+    "Describe a world where gravity only works half the day.",
+    "A mysterious bookstore appears in town. It wasn’t there yesterday—and no one remembers building it.",
+    "Write about a conversation between the Moon and the Ocean.",
+    "A child’s drawing comes to life and asks for help finding something.",
+    "Everyone is born with a glowing number above their head. Today, yours changed."
+  ];
+
+  function generatePrompt() {
+    const box = document.getElementById('promptBox');
+    const index = Math.floor(Math.random() * prompts.length);
+    box.textContent = prompts[index];
+  }
+</script>
+
+</body>
+</html>

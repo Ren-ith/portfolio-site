@@ -1,0 +1,227 @@
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f4f4f9, #d8e1e8);
+    color: #333;
+    line-height: 1.6;
+}
+
+.small-profile {
+    max-width: 50%;
+    height: auto;
+}
+
+/* Header section */
+header {
+    background-color: #3a3a3a;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Main container for content */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.intro-text {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #666;
+}
+
+.featured-image {
+    margin-top: 30px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #3a3a3a;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 40px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #555;
+    transform: translateY(-5px);
+}
+
+/* Smooth Scroll Effect */
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+}
+
+/* Project selection card styling */
+.project-type {
+    position: relative;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    max-width: 600px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    overflow: hidden;
+}
+
+.project-type h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.project-type p {
+    color: #666;
+}
+
+.project-type:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Preview image overlay */
+.project-type .preview {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}
+
+.project-type:hover .preview {
+    opacity: 1;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.gallery-item {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.project-entry {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.lightbox-modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    cursor: zoom-out;
+}
+
+.lightbox-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.intro-text, h2 {
+  text-align: center;
+}
+/* HEADER ALIGNMENT */
+header {
+  text-align: center;
+  padding: 20px 0;
+}

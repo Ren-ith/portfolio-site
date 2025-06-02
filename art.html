@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Art & Photography</title>
+  <link rel="stylesheet" href="style/main.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<header>
+  <h1>Digital Art & Photography</h1>
+</header>
+
+<h2>My Digital Art & Photography</h2>
+<p class="intro-text">
+  A curated collection of my visual work — from illustrations to photography.
+</p>
+
+<div class="gallery-grid">
+  <div class="gallery-item">
+    <a href="images/autumn.jpg" class="lightbox">
+      <img src="images/autumn.jpg" alt="Dreaming of Autumn">
+    </a>
+  </div>
+
+  <div class="gallery-item">
+    <a href="images/Arora.jpg" class="lightbox">
+      <img src="images/Arora.jpg" alt="Aurora Borealis Illustration">
+    </a>
+  </div>
+
+  <div class="gallery-item">
+    <a href="images/deadtree.jpg" class="lightbox">
+      <img src="images/deadtree.jpg" alt="Dead Tree Digital Art">
+    </a>
+  </div>
+
+  <div class="gallery-item">
+    <a href="videos/holoween_cat.mp4" class="lightbox">
+      <img src="images/holoween_cat_thumb.jpg" alt="Halloween Cat Video">
+    </a>
+  </div>
+</div>
+
+<p style="text-align: center; margin-top: 40px;">
+  <a href="projects.html" class="button">← Back to Projects</a>
+</p>
+
+<!-- Lightbox Modal -->
+<div id="lightbox-modal" class="lightbox-modal" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Expanded view">
+</div>
+
+<script src="scripts/lightbox.js"></script>
+
+</body>
+</html>
