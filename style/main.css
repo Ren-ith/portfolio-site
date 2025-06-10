@@ -50,7 +50,7 @@ header h1 {
 }
 
 .featured-image {
-    margin-top: 30px;
+    margin-top: 10px;
     max-width: 100%;
     height: auto;
     border-radius: 10px;
@@ -60,7 +60,7 @@ header h1 {
 /* Button Styling */
 .button {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 25px 100px;
     background-color: #3a3a3a;
     color: white;
     font-size: 18px;
