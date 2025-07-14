@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clippy Cat</title>
+<link rel="stylesheet" href="clippy-style.css">
+</head>
+<body>
+<!-- Fake toolbar -->
+<div id="ribbon-bar">
+<div class="menu-button">
+  File
+  <div class="dropdown">
+    <div class="dropdown-item">New</div>
+    <div class="dropdown-item">Open</div>
+    <div class="dropdown-item">Save</div>
+    <div class="dropdown-item">Exit</div>
+  </div>
+</div>
+
+<div class="menu-button">
+  Edit
+  <div class="dropdown">
+    <div class="dropdown-item">Undo</div>
+    <div class="dropdown-item">Redo</div>
+    <div class="dropdown-item">Cut</div>
+    <div class="dropdown-item">Paste</div>
+  </div>
+</div>
+
+ <div class="menu-button">
+  View
+  <div class="dropdown">
+    <div class="dropdown-item">Print Layout</div>
+    <div class="dropdown-item">Web Layout</div>
+    <div class="dropdown-item">Ruler</div>
+    <div class="dropdown-item">Zoom...</div>
+  </div>
+</div>
+
+<div class="menu-button">
+  Insert
+  <div class="dropdown">
+    <div class="dropdown-item">Picture</div>
+    <div class="dropdown-item">Text Box</div>
+    <div class="dropdown-item">Page Numbers</div>
+    <div class="dropdown-item">Symbol</div>
+  </div>
+</div>
+
+<div class="menu-button">
+  Format
+  <div class="dropdown">
+    <div class="dropdown-item">Font...</div>
+    <div class="dropdown-item">Paragraph...</div>
+    <div class="dropdown-item">Borders and Shading...</div>
+    <div class="dropdown-item">Background</div>
+  </div>
+</div>
+
+<div class="menu-button">
+  Tools
+  <div class="dropdown">
+    <div class="dropdown-item">Spelling and Grammar...</div>
+    <div class="dropdown-item">Word Count</div>
+    <div class="dropdown-item">AutoCorrect Options...</div>
+    <div class="dropdown-item">Track Changes</div>
+  </div>
+</div>
+
+<div class="menu-button">
+  Help
+  <div class="dropdown">
+    <div class="dropdown-item">Help Topics</div>
+    <div class="dropdown-item">Office Assistant</div>
+    <div class="dropdown-item">What's This?</div>
+    <div class="dropdown-item">About Microsoft Word</div>
+  </div>
+</div>
+  <div class="menu-button clippy-menu-button">Ask Clippy</div>
+</div>
+
+
+<!-- Fake document background -->
+<div id="word-page">
+   <div id="ruler-bar">
+  <div class="tick major">1</div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+
+  <div class="tick major">2</div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+
+  <div class="tick major">3</div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+
+  <div class="tick major">4</div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+
+  <div class="tick major">5</div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+
+  <div class="tick major">6</div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+
+  <div class="tick major">7</div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+  <div class="tick minor"></div>
+
+  <div class="tick major">8</div>
+</div>
+
+    <div id="fake-text" contenteditable="true"></div>
+    
+</div>
+<div id="footer-bar">Page 1 of 1</div>
+
+<!-- Clippy Floating Assistant -->
+<div id="clippy-box">
+  <video id="clippy-vid" autoplay loop muted playsinline>
+    <source src="ClippyCat_Rig.webm" type="video/webm">
+    Your browser does not support WebM with transparency.
+  </video>
+  <div id="speech-bubble">It looks like you're trying to relive the '90s. Need help?</div>
+</div>
+
+
+<!-- JavaScript (can go at end of body) -->
+<script>
+  const clippyButton = document.querySelector('.clippy-menu-button');
+  const speechBubble = document.getElementById('speech-bubble');
+
+const generalMessages = [
+  "Clippy 2.0 now with 37% more sarcasm!",
+  "Let’s get productive... or at least look busy.",
+  "Would you like to hear about my lord and savior, Microsoft Word 97?",
+  "Saving your work is free. Regret is forever.",
+  "Don't worry, I don't actually read your files... much.",
+  "Would you like to enable nonsense mode? Too late!",
+  "Every time you ignore spellcheck, a fairy loses its wings.",
+  "This might be your best work. Or a cry for help.",
+  "I'm paperclip-shaped emotional support. You're welcome.",
+  "You should really name your document something besides 'final_FINAL_real.docx'",
+  "Clippy is back. Regret nothing.",
+  "Who needs Grammarly when you have ✨me✨?",
+  "I'm 12% helpful and 88% nostalgic.",
+  "Would you like a hug or more passive-aggressive advice?",
+  "You’ve activated verbose mode. Congratulations.",
+  "This looks like it belongs on a motivational poster. Circa 1998.",
+];
+
+const typingMessages = [
+  "It looks like you're writing a breakup letter. Should I add tears?",
+  "Oops, did I interrupt your existential crisis?",
+  "You type like someone who's forgotten how punctuation works.",
+  "That document you're writing? Yeah, it’s crying for formatting.",
+  "Have you considered turning it off and pretending it never happened?",
+  "It looks like you're typing... poorly.",
+  "Looks like you’re trying to fake productivity. I got you.",
+  "You misspelled your own name. Should I laugh or help?",
+  "Do you want to convert that Word doc into a flaming PDF?",
+  "Would you like to replace all commas with dramatic pauses?",
+  "The blinking cursor is judging you. And so am I.",
+  "It looks like you’re screaming internally. Need help?",
+  "Remember: If it’s underlined in red, it’s probably fine.",
+  "Looks like you're trying to write a manifesto. Bold move.",
+  "Are you writing an apology? I’d suggest groveling.",
+  "This document has more red than a horror movie.",
+  "Still writing? You deserve a snack.",
+  "Everything is fine. Except your formatting.",
+  "I can’t fix your life, but I can bold your text.",
+  "Do you want to save your work or your soul?",
+  "Your keystrokes spell 'why'.",
+  "You've entered the typo zone.",
+  "This document is a rollercoaster. And I’ve thrown up twice.",
+  "Congratulations! You’ve invented a new citation style.",
+  "Formatting this properly might summon demons.",
+  "It’s a document. It’s a lifestyle. It’s a cry for help.",
+  "Your word count is impressive. Your content? Debatable.",
+  "If your document crashes, blame Mercury retrograde.",
+  "We ride at dawn... to the land of half-finished drafts.",
+];
+ 
+
+clippyButton.addEventListener('click', () => {
+  const clippyVid = document.getElementById('clippy-vid'); // this line adds the wiggle target
+  const random = Math.floor(Math.random() * generalMessages.length);
+  speechBubble.style.opacity = 0;
+
+  setTimeout(() => {
+    speechBubble.textContent = generalMessages[random];
+    speechBubble.style.opacity = 1;
+
+    // Wiggle effect
+    clippyVid.classList.add('wiggle');
+    setTimeout(() => clippyVid.classList.remove('wiggle'), 800);
+  }, 300);
+});
+
+// === Drag logic ===
+const clippyBox = document.getElementById('clippy-box');
+let isDragging = false, offsetX = 0, offsetY = 0;
+
+clippyBox.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  offsetX = e.clientX - clippyBox.offsetLeft;
+  offsetY = e.clientY - clippyBox.offsetTop;
+});
+
+document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    clippyBox.style.left = `${e.clientX - offsetX}px`;
+    clippyBox.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener('mouseup', () => {
+  isDragging = false;
+});
+
+  
+</script>
+<script>
+  const fakeText = document.getElementById('fake-text');
+let typingTimeout;
+
+fakeText.addEventListener('input', () => {
+  if (typingTimeout) clearTimeout(typingTimeout);
+
+  typingTimeout = setTimeout(() => {
+    const random = Math.floor(Math.random() * typingMessages.length);
+    speechBubble.style.opacity = 0;
+    setTimeout(() => {
+      speechBubble.textContent = typingMessages[random];
+      speechBubble.style.opacity = 1;
+    }, 300);
+  }, 1200);
+});
+
+</script>
+<script>
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function moveClippy() {
+  const clippyBox = document.getElementById('clippy-box');
+  const boxWidth = clippyBox.offsetWidth;
+  const boxHeight = clippyBox.offsetHeight;
+
+  const padding = 20;
+  const maxX = window.innerWidth - boxWidth - padding;
+  const maxY = window.innerHeight - boxHeight - padding;
+
+  const newX = getRandomInt(padding, maxX);
+  const newY = getRandomInt(padding, maxY);
+
+  clippyBox.style.transition = "top 0.6s ease, left 0.6s ease";
+  clippyBox.style.left = `${newX}px`;
+  clippyBox.style.top = `${newY}px`;
+
+  // Add bounce class for animation
+  clippyBox.classList.add("bounce");
+  setTimeout(() => clippyBox.classList.remove("bounce"), 600);
+}
+function randomIdleMessage() {
+  const random = Math.floor(Math.random() * generalMessages.length);
+  speechBubble.style.opacity = 0;
+
+  setTimeout(() => {
+    speechBubble.textContent = generalMessages[random];
+    speechBubble.style.opacity = 1;
+  }, 300);
+}
+
+// Loop: Move Clippy every 10–20 seconds
+function clippyIdleLoop() {
+  setTimeout(() => {
+    moveClippy();
+    randomIdleMessage();
+    clippyIdleLoop(); // Repeat
+  }, getRandomInt(10000, 20000)); // 10–20s
+}
+
+// Start idle behavior after page loads
+window.addEventListener('load', () => {
+  clippyIdleLoop();
+});
+setTimeout(() => {
+  document.getElementById('clippy-box').style.opacity = 1;
+}, 800); // Delay before fade-in
+
+</script>
+
+</body>
+</html>
