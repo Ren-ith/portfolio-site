@@ -134,11 +134,9 @@ header hr {
 /* GALLERY GRID */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin: 60px auto;
-  width: 90%;
-  max-width: 1200px;
+  grid-template-columns: repeat(5, 1fr); /* five columns of equal width */
+  gap: 16px; /* spacing between items, adjust as needed */
+  padding: 16px; /* optional, for breathing room */
 }
 
 .gallery-item {
@@ -159,6 +157,24 @@ header hr {
 
 .gallery-item img:hover {
   transform: scale(1.02);
+}
+
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* LIGHTBOX */
@@ -270,4 +286,29 @@ html {
   display: block;
   padding: 10px;
   margin: 0 auto;
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  min-height: calc(100vh - 60px); /* adjust 60px to match your footer height */
+  padding-bottom: 20px; /* optional, space between content and footer */
+}
+
+.site-footer {
+  height: 60px;
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+.site-footer a {
+  color: #333;
+  text-decoration: underline;
 }
