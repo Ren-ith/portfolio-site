@@ -48,3 +48,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 });
+ const lightboxLinks = document.querySelectorAll('.lightbox');
+  const modal = document.getElementById('lightbox-modal');
+
+  lightboxLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const url = this.getAttribute('href');
+      let embed;
+
+      // Detect YouTube link and extract video ID
+      const youtubeMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+      if (youtubeMatch) {
+        const videoId = youtubeMatch[1];
+        embed = document.createElement('iframe');
+        embed.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        embed.allow = 'autoplay; encrypted-media';
+        embed.allowFullscreen = true;
+      } else {
+        // Fallback for images or unsupported media
+        embed = document.createElement('img');
+        embed.src = url;
+      }
+
+      // Clear and insert media
+      modal.innerHTML = '';
+      modal.appendChild(embed);
+      modal.style.display = 'flex';
+    });
+  });
+
+  // Close modal on click
+  modal.addEventListener('click', () => {
+    modal.innerHTML = '';
+    modal.style.display = 'none';
+  });

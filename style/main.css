@@ -191,12 +191,18 @@ header hr {
   cursor: zoom-out;
 }
 
-.lightbox-modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 4px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.1);
+.lightbox-modal img,
+.lightbox-modal iframe,
+.lightbox-modal video {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: 1280px;      /* Default desktop video width */
+  height: 720px;      /* Default desktop video height */
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.15);
 }
+
 
 /* FADE IN ANIMATION */
 @keyframes fadeIn {
