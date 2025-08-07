@@ -191,7 +191,17 @@ header hr {
   cursor: zoom-out;
 }
 
-.lightbox-modal img,
+.lightbox-modal img {
+  width: auto;
+  height: auto;
+  max-width: 80vw;
+  max-height: 80vh;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  object-fit: contain;
+}
+
 .lightbox-modal iframe,
 .lightbox-modal video {
   max-width: 95vw;
